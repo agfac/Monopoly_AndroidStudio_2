@@ -166,8 +166,10 @@ public class MainActivity extends Activity implements OnClickListener {
                 String[] parts = message.split(";");
                 playerBalance = parts[1];
 
-
                 PlayNowActivity.playerBalance.setText(playerBalance+" M");
+
+                if(ManageListActivity.active)
+                ManageListActivity.playerBalance.setText(playerBalance+" M");
 
             };
 

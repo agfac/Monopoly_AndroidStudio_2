@@ -31,9 +31,15 @@ public class ManageListActivity extends Activity {
 
     private static String name;
 
+    public static TextView playerBalance;
+
     public void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
        setContentView(R.layout.manage_list);
+
+        active = true;
+
+        MainActivity.tcpClient.sendMessage(Integer.toString(MainActivity.id)+";Which is my balance?");
 
        properties = MainActivity.playerProperties;
 
@@ -42,8 +48,7 @@ public class ManageListActivity extends Activity {
        TextView playerName = (TextView) findViewById(R.id.playerName_textView);
        playerName.setText(name);
 
-        TextView playerBalance = (TextView) findViewById(R.id.money_textView);
-        playerBalance.setText(SettingsActivity.initialBalance);
+        playerBalance = (TextView) findViewById(R.id.money_textView2);
 
        int count = properties.length() - properties.replace(";", "").length();
 

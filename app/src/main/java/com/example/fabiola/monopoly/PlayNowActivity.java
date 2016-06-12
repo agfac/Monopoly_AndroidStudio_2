@@ -67,8 +67,7 @@ public class PlayNowActivity extends Activity implements OnClickListener {
                 break;
         }
 
-        playerBalance = (TextView) findViewById(R.id.money_textView);
-        //playerBalance.setText(SettingsActivity.initialBalance);
+        playerBalance = (TextView) findViewById(R.id.money_textView2);
 
         // Set up click listeners for all the buttons
         View rollDice = findViewById(R.id.rollDice_button);
