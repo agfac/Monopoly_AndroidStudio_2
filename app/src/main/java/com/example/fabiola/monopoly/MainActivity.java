@@ -25,6 +25,8 @@ public class MainActivity extends Activity implements OnClickListener {
 
     public static String playerProperties;
 
+    public static String playerBalance;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,14 +136,38 @@ public class MainActivity extends Activity implements OnClickListener {
 
             String message=values[0];
 
-            System.out.println(message);
-
             if(message.matches("Properties:(.*)")){
-                System.out.println("Entrei: "+message);
                 String[] parts = message.split(":");
                 playerProperties = parts[1];
 
+                Intent i = new Intent(getApplicationContext(), ManageListActivity.class);
+                finish();
+                startActivity(i);
                 ManageListActivity.properties=playerProperties;
+
+            };
+
+            if(message.matches("(.*);Next Player")){
+
+                String[] parts = message.split(";");
+                String image = parts[0];
+
+                if (PlayingActivity.active || BuyingActivity.active)
+                    PlayingActivity.setImage(image);
+
+                if (!(PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || WaitActivity.active)) {
+                    Intent i = new Intent(getApplicationContext(), WaitActivity.class);
+                    PlayingActivity.fa.finish();
+                    startActivity(i);
+                }
+            }
+
+            if(message.matches("Your balance is;(.*)")){
+                String[] parts = message.split(";");
+                playerBalance = parts[1];
+
+
+                PlayNowActivity.playerBalance.setText(playerBalance+" M");
 
             };
 
@@ -194,7 +220,7 @@ public class MainActivity extends Activity implements OnClickListener {
                     finish();
                     break;
                 case "1;It is your turn":
-                    if(id==1) {
+                    if(id.equals(1)) {
                         if (PlayNowActivity.active || PlayingActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active) {
                             break;
                         } else {
@@ -205,7 +231,7 @@ public class MainActivity extends Activity implements OnClickListener {
                         }
                     }
                 case "2;It is your turn":
-                    if(id==2) {
+                    if(id.equals(2)) {
                         if (PlayNowActivity.active || PlayingActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active) {
                             break;
                         } else {
@@ -216,7 +242,7 @@ public class MainActivity extends Activity implements OnClickListener {
                         }
                     }
                 case "3;It is your turn":
-                    if(id==3) {
+                    if(id.equals(3)) {
                         if (PlayNowActivity.active || PlayingActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active) {
                             break;
                         } else {
@@ -227,7 +253,7 @@ public class MainActivity extends Activity implements OnClickListener {
                         }
                     }
                 case "4;It is your turn":
-                    if(id==4) {
+                    if(id.equals(4)) {
                         if (PlayNowActivity.active || PlayingActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active) {
                             break;
                         } else {
@@ -247,127 +273,167 @@ public class MainActivity extends Activity implements OnClickListener {
                             break;
                         }
                 case "0":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("0");
                     break;
                 case "1":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("1");
                     break;
                 case "2":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("2");
                     break;
                 case "3":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("3");
                     break;
                 case "4":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("4");
                     break;
                 case "5":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("5");
                     break;
                 case "6":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("6");
                     break;
                 case "7":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("7");
                     break;
                 case "8":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("8");
                     break;
                 case "9":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("9");
                     break;
                 case "10":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("10");
                     break;
                 case "11":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("11");
                     break;
                 case "12":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("12");
                     break;
                 case "13":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("13");
                     break;
                 case "14":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("14");
                     break;
                 case "15":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("15");
                     break;
                 case "16":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("16");
                     break;
                 case "17":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("17");
                     break;
                 case "18":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("18");
                     break;
                 case "19":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("19");
                     break;
                 case "20":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("20");
                     break;
                 case "21":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("21");
                     break;
                 case "22":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("22");
                     break;
                 case "23":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("23");
                     break;
                 case "24":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("24");
                     break;
                 case "25":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("25");
                     break;
                 case "26":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("26");
                     break;
                 case "27":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("27");
                     break;
                 case "28":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("28");
                     break;
                 case "29":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("29");
                     break;
                 case "30":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("30");
                     break;
                 case "31":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("31");
                     break;
                 case "32":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("32");
                     break;
                 case "33":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("33");
                     break;
                 case "34":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("34");
                     break;
                 case "35":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("35");
                     break;
                 case "36":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("36");
                     break;
                 case "37":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("37");
                     break;
                 case "38":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("38");
                     break;
                 case "39":
+                    if(PlayingActivity.active || BuyingActivity.active)
                     PlayingActivity.setImage("39");
                     break;
                 case "1;Do you want to buy this property?":
-                    if(id==1) {
+                    if(id.equals(1)) {
                         if (PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active || WaitActivity.active) {
                             break;
                         } else if (PlayingActivity.active) {
@@ -378,7 +444,7 @@ public class MainActivity extends Activity implements OnClickListener {
                         }
                     }
                 case "2;Do you want to buy this property?":
-                    if(id==2) {
+                    if(id.equals(2)) {
                         if (PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active || WaitActivity.active) {
                             break;
                         } else if (PlayingActivity.active) {
@@ -389,7 +455,7 @@ public class MainActivity extends Activity implements OnClickListener {
                         }
                     }
                 case "3;Do you want to buy this property?":
-                    if(id==3) {
+                    if(id.equals(3)) {
                         if (PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active || WaitActivity.active) {
                             break;
                         } else if (PlayingActivity.active) {
@@ -400,7 +466,7 @@ public class MainActivity extends Activity implements OnClickListener {
                         }
                     }
                 case "4;Do you want to buy this property?":
-                    if(id==4) {
+                    if(id.equals(4)) {
                         if (PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || BuyingActivity.active || WaitActivity.active) {
                             break;
                         } else if (PlayingActivity.active) {
@@ -440,20 +506,33 @@ public class MainActivity extends Activity implements OnClickListener {
                         startActivity(i);
                         break;
                     }
+                case "You couldn't mortgage this property":
+                    Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_LONG).show();
+                    break;
+                case "You couldn't unmortgage this property":
+                    Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_LONG).show();
+                    break;
+                case "You couldn't build more houses":
+                    Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_LONG).show();
+                    break;
+                case "You couldn't build hotel":
+                    Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_LONG).show();
+                    break;
+                case "You couldn't sell more houses":
+                    Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_LONG).show();
+                    break;
+                case "You couldn't sell hotel":
+                    Toast.makeText(MainActivity.this, values[0], Toast.LENGTH_LONG).show();
+                    break;
+                case "You have no properties to manage!":
+                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_LONG).show();
+                    break;
             }
-            /*Intent intent = new Intent(MainActivity.MY_LOCAL_BROADCAST);
-            intent.putExtra(MainActivity.KEY_RESPONSE, values);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);*/
-            /*response = values[0];
-            if (!response.equalsIgnoreCase(null)) {
-                Toast.makeText(MainActivity.this, response, Toast.LENGTH_LONG).show();
-            }*/
+
         }
 
         protected void onPostExecute(String result) {
-            /*Intent intent = new Intent(MainActivity.MY_LOCAL_BROADCAST);
-            intent.putExtra(MainActivity.KEY_RESPONSE, result);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);*/
+
         }
     }
 

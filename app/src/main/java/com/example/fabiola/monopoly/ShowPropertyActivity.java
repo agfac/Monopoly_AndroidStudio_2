@@ -60,8 +60,43 @@ public class ShowPropertyActivity extends Activity {
 
             @Override
             public void onClick(View arg0) {
-                MainActivity.tcpClient.sendMessage(ManageListActivity.imageSelected+"BuildHotel");
+                MainActivity.tcpClient.sendMessage(ManageListActivity.imageSelected+";BuildHotel");
 
+            }
+
+        });
+
+        View sellhouses = findViewById(R.id.button12);
+        sellhouses.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                MainActivity.tcpClient.sendMessage(ManageListActivity.imageSelected+";SellHouse");
+
+            }
+
+        });
+
+        View sellhotel = findViewById(R.id.button11);
+        sellhotel.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                MainActivity.tcpClient.sendMessage(ManageListActivity.imageSelected+";SellHotel");
+
+            }
+
+        });
+
+        View play = findViewById(R.id.button13);
+        play.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                MainActivity.tcpClient.sendMessage("Play again");
+                Intent i = new Intent(getApplicationContext(), PlayNowActivity.class);
+                finish();
+                startActivity(i);
             }
 
         });
@@ -115,7 +150,7 @@ public class ShowPropertyActivity extends Activity {
                 case "Connecticut Avenue":
                     imageView.setImageResource(R.drawable.connecticut_avenue);
                     break;
-                case "St Charles Place":
+                case "ST Charles Place":
                     imageView.setImageResource(R.drawable.st_charles_place);
                     break;
                 case "Electric Company":
@@ -130,7 +165,7 @@ public class ShowPropertyActivity extends Activity {
                 case "Pennsylvania RailRoad":
                     imageView.setImageResource(R.drawable.pennsylvania_railroad);
                     break;
-                case "St James Place":
+                case "ST James Place":
                     imageView.setImageResource(R.drawable.st_james_place);
                     break;
                 case "Tennesse Avenue":

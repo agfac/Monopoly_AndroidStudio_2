@@ -8,12 +8,15 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PlayNowActivity extends Activity implements OnClickListener {
 
     public static boolean active = false;
     private static String name;
     private static EditText textField;
+
+    public static TextView playerBalance;
 
     public static Activity fpn;
 
@@ -22,6 +25,8 @@ public class PlayNowActivity extends Activity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_now);
+
+        MainActivity.tcpClient.sendMessage(Integer.toString(MainActivity.id)+";Which is my balance?");
 
         fpn = this;
 
@@ -62,8 +67,8 @@ public class PlayNowActivity extends Activity implements OnClickListener {
                 break;
         }
 
-        TextView playerBalance = (TextView) findViewById(R.id.money_textView);
-        playerBalance.setText(SettingsActivity.initialBalance);
+        playerBalance = (TextView) findViewById(R.id.money_textView);
+        //playerBalance.setText(SettingsActivity.initialBalance);
 
         // Set up click listeners for all the buttons
         View rollDice = findViewById(R.id.rollDice_button);
@@ -105,6 +110,8 @@ public class PlayNowActivity extends Activity implements OnClickListener {
         super.onResume();
         active = true;
 
+        Toast.makeText(getBaseContext(), "It is your turn", Toast.LENGTH_LONG).show();
+
         if(WaitActivity.active)
             WaitActivity.fw.finish();
     }
@@ -117,14 +124,14 @@ public class PlayNowActivity extends Activity implements OnClickListener {
             case R.id.rollDice_button:
                 MainActivity.tcpClient.sendMessage("Playing begins");
                 i = new Intent(this, PlayingActivity.class);
-                this.finish();
+                finish();
                 startActivity(i);
                 break;
             case R.id.manage_button:
                 i = new Intent(this, ManageListActivity.class);
                 MainActivity.tcpClient.sendMessage("Manage Activity");
-                this.finish();
-                startActivity(i);
+                /*finish();
+                startActivity(i);*/
                 break;
             case R.id.trade_button:
                 // do something

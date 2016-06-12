@@ -61,9 +61,7 @@ public class ManageListActivity extends Activity {
            myStringArray.add(properties);
 
 
-       for(String s:myStringArray)
-               System.out.println(s);
-
+        properties="";
        /*for(int i =0; i < properties.length();i++){
            String c=properties.substring(i,i);
            if(!c.equals(".")|| !c.equals(";")){
@@ -112,9 +110,7 @@ public class ManageListActivity extends Activity {
                */
            }
        });
-
-       System.out.println("Inicio manage----" + properties);
-   }
+    }
 
     @Override
     public void onStart() {

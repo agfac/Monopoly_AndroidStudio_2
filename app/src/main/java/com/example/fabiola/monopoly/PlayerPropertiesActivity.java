@@ -62,6 +62,8 @@ public class PlayerPropertiesActivity extends Activity implements OnClickListene
         } else if (v.getId() == R.id.saveOptions_button) {
 
         } else if (v.getId() == R.id.choosePiece_button) {
+            View saveButton = findViewById(R.id.saveOptions_button);
+            saveButton.setEnabled(true);
             Intent i = new Intent(this, GridViewPiecesActivity.class);
             startActivityForResult(i,1);
         }

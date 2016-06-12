@@ -38,6 +38,8 @@ public class WaitActivity extends Activity {
     public void onResume() {
         super.onResume();
 
+        Toast.makeText(getBaseContext(), "Please wait your turn", Toast.LENGTH_LONG).show();
+
         if(PlayingActivity.active)
             PlayingActivity.fa.finish();
 
@@ -55,7 +57,7 @@ public class WaitActivity extends Activity {
         myTimerTask = new MyTimerTask();
 
 
-        timer.schedule(myTimerTask, 0, 1000);
+        timer.schedule(myTimerTask, 0, 500);
         }
 
     @Override
@@ -101,7 +103,7 @@ class MyTimerTask extends TimerTask {
             @Override
             public void run() {
                 if(active)
-                    Toast.makeText(WaitActivity.this, "Please wait your turn", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getContext(), "Please wait your turn", Toast.LENGTH_LONG).show();
                 MainActivity.tcpClient.sendMessage(Integer.toString(MainActivity.id) + ";Is it my turn?");
 
             }
