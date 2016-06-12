@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Monopoly</string>
+    <string name="action_settings">Settings</string>
+    <string name="help_text"> Escrever qualque coisa aqui ../values/strings.xml</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_wait">WaitActivity</string>
+</resources>

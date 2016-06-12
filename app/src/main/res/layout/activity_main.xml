@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+
+    tools:context="com.example.fabiola.monopoly.MainActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorBlack"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_main" />
+
+
+</android.support.design.widget.CoordinatorLayout>
+-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:padding="30dip" >
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:text="Play Now"
+        android:id="@+id/playNow_button"
+        android:background="@drawable/button_selector"
+        android:focusable="false"
+        android:singleLine="false"
+        android:textSize="@dimen/abc_dialog_padding_material"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/help_button" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:text="Help"
+        android:id="@+id/help_button"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_selector"
+        android:textSize="@dimen/abc_dialog_padding_material"
+        android:layout_below="@+id/playNow_button" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:text="Exit"
+        android:id="@+id/exit_button"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/help_button"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button_selector"
+        android:textSize="@dimen/abc_dialog_padding_material"/>
+
+</RelativeLayout>
