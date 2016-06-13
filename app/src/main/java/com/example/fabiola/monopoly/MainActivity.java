@@ -168,9 +168,6 @@ public class MainActivity extends Activity implements OnClickListener {
 
                 PlayNowActivity.playerBalance.setText(playerBalance+" M");
 
-                if(ManageListActivity.active)
-                ManageListActivity.playerBalance.setText(playerBalance+" M");
-
             };
 
             switch (message){

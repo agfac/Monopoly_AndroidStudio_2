@@ -39,16 +39,15 @@ public class ManageListActivity extends Activity {
 
         active = true;
 
-        MainActivity.tcpClient.sendMessage(Integer.toString(MainActivity.id)+";Which is my balance?");
-
        properties = MainActivity.playerProperties;
 
        name = PlayerPropertiesActivity.namePlayer;
 
-       TextView playerName = (TextView) findViewById(R.id.playerName_textView);
+       TextView playerName = (TextView) findViewById(R.id.textView2);
        playerName.setText(name);
 
-        playerBalance = (TextView) findViewById(R.id.money_textView2);
+        playerBalance = (TextView) findViewById(R.id.textView);
+        playerBalance.setText(MainActivity.playerBalance+" M");
 
        int count = properties.length() - properties.replace(";", "").length();
 
