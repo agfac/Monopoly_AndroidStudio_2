@@ -485,7 +485,7 @@ public class MainActivity extends Activity implements OnClickListener {
                         startActivity(i);
                         break;
                     }
-                case "Not Bought":
+                case "Not bought":
                     if (PlayNowActivity.active || ManageListActivity.active || ShowPropertyActivity.active || WaitActivity.active){
                         break;
                     }
