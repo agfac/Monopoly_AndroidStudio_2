@@ -134,9 +134,12 @@ public class MainActivity extends Activity implements OnClickListener {
         protected void onProgressUpdate(String... values) {
             super.onProgressUpdate(values);
 
+
             String message=values[0];
 
             if(message.matches("Properties:(.*)")){
+                playerProperties="";
+
                 String[] parts = message.split(":");
                 playerProperties = parts[1];
 

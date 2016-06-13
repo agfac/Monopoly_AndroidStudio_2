@@ -90,6 +90,8 @@ public class PlayNowActivity extends Activity implements OnClickListener {
 
         if(WaitActivity.active)
             WaitActivity.fw.finish();
+
+        Toast.makeText(getBaseContext(), "It is your turn", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -108,8 +110,6 @@ public class PlayNowActivity extends Activity implements OnClickListener {
     public void onResume() {
         super.onResume();
         active = true;
-
-        Toast.makeText(getBaseContext(), "It is your turn", Toast.LENGTH_LONG).show();
 
         if(WaitActivity.active)
             WaitActivity.fw.finish();

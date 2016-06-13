@@ -38,8 +38,6 @@ public class WaitActivity extends Activity {
     public void onResume() {
         super.onResume();
 
-        Toast.makeText(getBaseContext(), "Please wait your turn", Toast.LENGTH_LONG).show();
-
         if(PlayingActivity.active)
             PlayingActivity.fa.finish();
 
@@ -70,6 +68,8 @@ public class WaitActivity extends Activity {
     public void onStart() {
         super.onStart();
         active = true;
+
+        Toast.makeText(getBaseContext(), "Please wait your turn", Toast.LENGTH_LONG).show();
 
         if(PlayingActivity.active)
             PlayingActivity.fa.finish();

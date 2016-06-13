@@ -64,8 +64,8 @@ public class ManageListActivity extends Activity {
        else
            myStringArray.add(properties);
 
-
         properties="";
+
        /*for(int i =0; i < properties.length();i++){
            String c=properties.substring(i,i);
            if(!c.equals(".")|| !c.equals(";")){
@@ -126,12 +126,16 @@ public class ManageListActivity extends Activity {
     public void onStop() {
         super.onStop();
         active = false;
+
+        myStringArray.clear();
     }
 
     @Override
     public void onPause() {
         super.onPause();
         active = false;
+
+        myStringArray.clear();
     }
 
     public void onResume(){
